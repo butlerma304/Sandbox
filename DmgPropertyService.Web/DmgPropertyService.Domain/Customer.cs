@@ -1,32 +1,34 @@
 ﻿using System;
-using System.IO;
 using System.Collections;
-using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
+using ServiceStack.DataAnnotations;
 
-namespace ConsoleApplication1
+
+namespace DmgPropertyService.Domain
 {
     public class Customer
     {
-        public string customerNumber;
-        public string invoiceNumber;
-        public string invoiceType;
-        public string invoiceDate;
+        [AutoIncrement] //OrmLite Hint
+        public string CustomerNumber;
+        public string InvoiceNumber;
+        public string InvoiceType;
+        public string InvoiceDate;
+
+        public Customer() {}
 
         public Customer(string custNumber, string invNumber, string invType, string invDate)
         {
-            customerNumber = custNumber;
-            invoiceNumber = invNumber;
-            invoiceType = invType;
-            invoiceDate = invDate;
+            CustomerNumber = custNumber;
+            InvoiceNumber = invNumber;
+            InvoiceType = invType;
+            InvoiceDate = invDate;
 
         }
     }
 
     public class Customers : IEnumerable
     {
-        private Customer[] _customer;
+        private readonly Customer[] _customer;
 
         public Customers(Customer[] cArray)
         {
@@ -53,26 +55,26 @@ namespace ConsoleApplication1
 
     public class CustomersEnum : IEnumerator
     {
-        public Customer[] _customer;
+        public Customer[] Customer;
 
         // Enumerators are positioned before the first element 
         // until the first MoveNext() call. 
-        int position = -1;
+        int _position = -1;
 
         public CustomersEnum(Customer[] list)
         {
-            _customer = list;
+            Customer = list;
         }
 
         public bool MoveNext()
         {
-            position++;
-            return (position < _customer.Length);
+            _position++;
+            return (_position < Customer.Length);
         }
 
         public void Reset()
         {
-            position = -1;
+            _position = -1;
         }
 
         object IEnumerator.Current
@@ -89,7 +91,7 @@ namespace ConsoleApplication1
             {
                 try
                 {
-                    return _customer[position];
+                    return Customer[_position];
                 }
                 catch (IndexOutOfRangeException)
                 {
@@ -103,25 +105,25 @@ namespace ConsoleApplication1
     {
         static void Main(string[] args)
         {
-            Customer[] customersArray = new Customer[3]
+            var customersArray = new Customer[3]
             {
                 new Customer("023541", "GC2133", "type001","7/3/2013"  ),
                 new Customer("185627", "QR3456", "type003","7/3/2013"),
                 new Customer("314567", "QX5678", "type004","7/3/2013"),
             };
 
-            StringBuilder sb = new StringBuilder();
-            Customers customersList = new Customers(customersArray);
-            foreach (Customer c in customersList)
+            var sb = new StringBuilder();
+            var customersList = new Customers(customersArray);
+            foreach (var c in customersList)
             {
 
                 sb.AppendFormat("{0,-8}{1,-20}{2,-10}{3,-10:yyyyMMdd}{4}",
-                                              c.customerNumber.ToString().PadLeft(6, '0'),
-                                              c.invoiceNumber,
-                                              c.invoiceType,
-                                              c.invoiceDate,
+                                              c.CustomerNumber.ToString().PadLeft(6, '0'),
+                                              c.InvoiceNumber,
+                                              c.InvoiceType,
+                                              c.InvoiceDate,
                                               Environment.NewLine);
-                Console.WriteLine(c.customerNumber + " " + c.invoiceNumber + " " + c.invoiceDate);
+                Console.WriteLine(c.CustomerNumber + " " + c.InvoiceNumber + " " + c.InvoiceDate);
 
             }
 
