@@ -1,18 +1,25 @@
 ﻿using System;
 using System.Collections;
+using System.Data;
 using System.Text;
 using ServiceStack.DataAnnotations;
+using ServiceStack.OrmLite;
+using ServiceStack.ServiceHost;
+using ServiceStack.ServiceInterface;
 
 
 namespace DmgPropertyService.Domain
 {
+    [Route("/customers")]
+    [Route("/customers/{ID}")]
     public class Customer
     {
         [AutoIncrement] //OrmLite Hint
-        public string CustomerNumber;
-        public string InvoiceNumber;
-        public string InvoiceType;
-        public string InvoiceDate;
+        public int Id { get; set; }
+        public string CustomerNumber { get; set; }
+        public string InvoiceNumber { get; set; }
+        public string InvoiceType { get; set; }
+        public string InvoiceDate { get; set; }
 
         public Customer() {}
 
@@ -26,16 +33,16 @@ namespace DmgPropertyService.Domain
         }
     }
 
-    public class Customers : IEnumerable
+    public class CustomerList : IEnumerable
     {
         private readonly Customer[] _customer;
 
-        public Customers(Customer[] cArray)
+        public CustomerList(Customer[] cArray)
         {
 
             _customer = new Customer[cArray.Length];
 
-            for (int i = 0; i < cArray.Length; i++)
+            for (var i = 0; i < cArray.Length; i++)
             {
                 _customer[i] = cArray[i];
             }
@@ -101,34 +108,49 @@ namespace DmgPropertyService.Domain
         }
     }
 
-    class Program
+
+    public class CustomerService:RestServiceBase<Customer>
     {
-        static void Main(string[] args)
+        public IDbConnection DbFactory { get; set; }
+        public override object OnGet(Customer request)
         {
-            var customersArray = new Customer[3]
-            {
-                new Customer("023541", "GC2133", "type001","7/3/2013"  ),
-                new Customer("185627", "QR3456", "type003","7/3/2013"),
-                new Customer("314567", "QX5678", "type004","7/3/2013"),
-            };
-
-            var sb = new StringBuilder();
-            var customersList = new Customers(customersArray);
-            foreach (var c in customersList)
-            {
-
-                sb.AppendFormat("{0,-8}{1,-20}{2,-10}{3,-10:yyyyMMdd}{4}",
-                                              c.CustomerNumber.ToString().PadLeft(6, '0'),
-                                              c.InvoiceNumber,
-                                              c.InvoiceType,
-                                              c.InvoiceDate,
-                                              Environment.NewLine);
-                Console.WriteLine(c.CustomerNumber + " " + c.InvoiceNumber + " " + c.InvoiceDate);
-
-            }
-
+            if (request.Id != default(int))
+                return DbFactory.Exec(dbCmd => dbCmd.GetById<Customer>(request.Id));
+            return DbFactory .Exec( dbCmd => dbCmd.Select<Customer>());
         }
+
+
+
     }
+
+    //class Program
+    //{
+    //    static void Main(string[] args)
+    //    {
+    //        var customersArray = new Customer[3]
+    //        {
+    //            new Customer("023541", "GC2133", "type001","7/3/2013"  ),
+    //            new Customer("185627", "QR3456", "type003","7/3/2013"),
+    //            new Customer("314567", "QX5678", "type004","7/3/2013"),
+    //        };
+
+    //        var sb = new StringBuilder();
+    //        var customersList = new Customers(customersArray);
+    //        foreach (var c in customersList)
+    //        {
+
+    //            sb.AppendFormat("{0,-8}{1,-20}{2,-10}{3,-10:yyyyMMdd}{4}",
+    //                                          c.CustomerNumber.ToString().PadLeft(6, '0'),
+    //                                          c.InvoiceNumber,
+    //                                          c.InvoiceType,
+    //                                          c.InvoiceDate,
+    //                                          Environment.NewLine);
+    //            Console.WriteLine(c.CustomerNumber + " " + c.InvoiceNumber + " " + c.InvoiceDate);
+
+    //        }
+
+    //    }
+    //}
 }
 
 
