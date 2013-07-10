@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DmgPropertyService.Data
+namespace DmgPropertyService.Domain
 {
-    public class c
+    class AutoMapperDomainConfiguration
     {
     }
 }
