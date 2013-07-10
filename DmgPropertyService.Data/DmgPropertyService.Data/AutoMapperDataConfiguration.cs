@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace DmgPropertyService.Data
 {
-    public class AutoMapperDataConfiguration
+    public class c
     {
     }
 }

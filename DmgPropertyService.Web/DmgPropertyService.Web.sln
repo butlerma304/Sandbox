@@ -7,6 +7,12 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DmgPropertyService.Web.Test
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DmgPropertyService.Domain", "DmgPropertyService.Domain\DmgPropertyService.Domain.csproj", "{EFB410B2-F838-4172-853A-141692008E28}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DmgPropertyService.Data", "..\DmgPropertyService.Data\DmgPropertyService.Data\DmgPropertyService.Data.csproj", "{1655C6BB-48DE-4B95-8063-A16234070837}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DmgPropertyService.Service", "DmgPropertyService.Service\DmgPropertyService.Service.csproj", "{5530FA76-0F4F-49FC-A95F-7A51D74F39D2}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DmgPropertyService.Api", "DmgPropertyService.Api\DmgPropertyService.Api.csproj", "{1DABF001-2467-4CC2-9886-F1BC124EC244}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -25,6 +31,18 @@ Global
 		{EFB410B2-F838-4172-853A-141692008E28}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{EFB410B2-F838-4172-853A-141692008E28}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{EFB410B2-F838-4172-853A-141692008E28}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1655C6BB-48DE-4B95-8063-A16234070837}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1655C6BB-48DE-4B95-8063-A16234070837}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1655C6BB-48DE-4B95-8063-A16234070837}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1655C6BB-48DE-4B95-8063-A16234070837}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5530FA76-0F4F-49FC-A95F-7A51D74F39D2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5530FA76-0F4F-49FC-A95F-7A51D74F39D2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5530FA76-0F4F-49FC-A95F-7A51D74F39D2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5530FA76-0F4F-49FC-A95F-7A51D74F39D2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1DABF001-2467-4CC2-9886-F1BC124EC244}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1DABF001-2467-4CC2-9886-F1BC124EC244}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1DABF001-2467-4CC2-9886-F1BC124EC244}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1DABF001-2467-4CC2-9886-F1BC124EC244}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
