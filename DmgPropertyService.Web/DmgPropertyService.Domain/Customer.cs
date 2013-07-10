@@ -4,6 +4,7 @@ using System.Data;
 using System.Text;
 using ServiceStack.DataAnnotations;
 using ServiceStack.OrmLite;
+using ServiceStack.OrmLite.SqlServer ;
 using ServiceStack.ServiceHost;
 using ServiceStack.ServiceInterface;
 
@@ -14,7 +15,7 @@ namespace DmgPropertyService.Domain
     [Route("/customers/{ID}")]
     public class Customer
     {
-        [AutoIncrement] //OrmLite Hint
+        [AutoIncrement] // Creates Auto primary key
         public int Id { get; set; }
         public string CustomerNumber { get; set; }
         public string InvoiceNumber { get; set; }
@@ -50,7 +51,7 @@ namespace DmgPropertyService.Domain
         }
         IEnumerator IEnumerable.GetEnumerator()
         {
-            return (IEnumerator)GetEnumerator();
+            return GetEnumerator();
         }
 
         public CustomersEnum GetEnumerator()
@@ -109,17 +110,36 @@ namespace DmgPropertyService.Domain
     }
 
 
-    public class CustomerService:RestServiceBase<Customer>
+    public class CustomerService:Service
     {
-        public IDbConnection DbFactory { get; set; }
-        public override object OnGet(Customer request)
+       // private IDbConnection  DbCon { get; set; }
+       // public OrmLiteConnectionFactory DbFactory { get; set; }
+       //using (var DbCon = ConnectionFactory.OpenDbConnection());
+      
+        private IDbConnection _dbConn;
+        public virtual IDbConnection DbCon
+        {
+            get { return _dbConn ?? (_dbConn = TryResolve<IDbConnectionFactory>().Open()); }
+        }
+        
+        
+        
+        
+        
+        
+        
+        public  object  OnGet(Customer request)
         {
             if (request.Id != default(int))
-                return DbFactory.Exec(dbCmd => dbCmd.GetById<Customer>(request.Id));
-            return DbFactory .Exec( dbCmd => dbCmd.Select<Customer>());
+                return DbCon.Id<Customer>(request.Id);
+            return DbCon.Select<Customer>();
         }
 
-
+        public new virtual void Dispose()
+        {
+            if (_dbConn != null)
+                _dbConn.Dispose();
+        } 
 
     }
 
