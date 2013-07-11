@@ -1,10 +1,6 @@
 ﻿using System;
 using System.Runtime.Serialization;
-
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using DmgPropertyService.Domain.Attributes;
 
 namespace DmgPropertyService.Domain
 {
@@ -16,9 +12,19 @@ namespace DmgPropertyService.Domain
             LastModifiedDate = CreateDate = DateTime.Now;
         }
 
+        [DataMember]
         public virtual Guid? ID { get; set; }
+
+        [ColumnName("CreateBy")]
         public User CreateBy { get; set; }
-        public DateTime? CreateDate { get; set; }
+
+        public DateTime? CreateDate { get; set;}
+
+        [ColumnName("Last Modified Date")]
         public DateTime? LastModifiedDate { get; set; }
+
+        [ColumnName("Last Modified By")]
+        public User LastModifiedBy { get; set; }
+
     }
 }
