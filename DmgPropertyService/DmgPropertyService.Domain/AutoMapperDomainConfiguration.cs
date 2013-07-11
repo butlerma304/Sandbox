@@ -6,7 +6,13 @@ using System.Threading.Tasks;
 
 namespace DmgPropertyService.Domain
 {
-    class AutoMapperDomainConfiguration
+    public static class AutoMapperDomainConfiguration
     {
+        public static void Configure()
+        {
+            //ConfigureUserMapping();
+            //ConfigurePostMapping();
+        }
+
     }
 }

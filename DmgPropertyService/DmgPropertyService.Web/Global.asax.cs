@@ -5,6 +5,11 @@ using System.Web;
 using System.Web.Http;
 using System.Web.Mvc;
 using System.Web.Routing;
+using DmgPropertyService.Api;
+using DmgPropertyService.Data;
+using DmgPropertyService.Domain;
+using DmgPropertyService.Service;
+using DmgPropertyService.Web.Mapping;
 
 namespace DmgPropertyService.Web
 {
@@ -19,6 +24,13 @@ namespace DmgPropertyService.Web
             WebApiConfig.Register(GlobalConfiguration.Configuration);
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
             RouteConfig.RegisterRoutes(RouteTable.Routes);
+
+            // AutoMapper Registration
+            AutoMapperWebConfiguration.Configure();
+            AutoMapperDataConfiguration.Configure();
+            AutoMapperServiceConfiguration.Configure();
+            AutoMapperDomainConfiguration.Configure();
+            AutoMapperApiConfiguration.Configure();
         }
     }
 }

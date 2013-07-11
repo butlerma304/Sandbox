@@ -13,7 +13,7 @@ namespace DmgPropertyService.Domain
 {
     [Route("/customers")]
     [Route("/customers/{ID}")]
-    public class Customer
+    public class Customer : EntityBase 
     {
         [AutoIncrement] // Creates Auto primary key
         public int Id { get; set; }

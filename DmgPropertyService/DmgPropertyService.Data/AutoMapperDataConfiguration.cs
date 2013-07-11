@@ -6,7 +6,16 @@ using System.Threading.Tasks;
 
 namespace DmgPropertyService.Data
 {
-    public class AutoMapperDataConfiguration
+    public static class AutoMapperDataConfiguration
     {
+        public static void Configure()
+        {
+            //Mapper.Initialize(cfg =>
+            //{
+            //    cfg.AddProfile(new UserProfile());
+            //    cfg.AddProfile(new PostProfile());
+            //});
+        }
+
     }
 }
