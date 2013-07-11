@@ -17,8 +17,7 @@ namespace IN.DOT.DamagedProperty.Api.Domain
         protected IMappingExpression<T, U> DomainToDtoMapping { get; private set; }
 
 
-
-        public BaseMapper()
+        protected BaseMapper()
         {
 
             DomainToDtoMapping = Mapper.CreateMap<T, U>();
@@ -33,7 +32,7 @@ namespace IN.DOT.DamagedProperty.Api.Domain
 
             var refProperties = from p in typeof(T).GetProperties()
 
-                                where p.PropertyType.BaseType == typeof(BaseEntity)
+                                where p.PropertyType.BaseType == typeof(EntityBase)
 
                                 select p;
 
@@ -48,7 +47,7 @@ namespace IN.DOT.DamagedProperty.Api.Domain
 
 
 
-            Mapper.CreateMap<PagedResult<T>, PagedResult<U>>()
+           <PagedResult<T>, PagedResult<U>>()
 
                   .ForMember(m => m.Results, m => m.Ignore());
 

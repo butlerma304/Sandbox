@@ -34,7 +34,7 @@
       <HintPath>..\packages\AutoMapper.2.2.1\lib\net40\AutoMapper.dll</HintPath>
     </Reference>
     <Reference Include="FluentValidation">
-      <HintPath>..\DmgPropertyService.Web\packages\FluentValidation.4.0.0.0\lib\Net40\FluentValidation.dll</HintPath>
+      <HintPath>..\IN.DOT.DamagedProperty.Api.WebUI\packages\FluentValidation.4.0.0.0\lib\Net40\FluentValidation.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <Private>True</Private>
@@ -83,12 +83,12 @@
     </Compile>
     <Compile Include="Customer.cs" />
     <Compile Include="EntityBase.cs" />
-    <Compile Include="MapperBase.cs" />
-    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="PagedResult.cs" />
     <Compile Include="User.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Interface\" />
+    <Folder Include="Properties\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

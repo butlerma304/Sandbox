@@ -5,11 +5,11 @@ using System.Web;
 using System.Web.Http;
 using System.Web.Mvc;
 using System.Web.Routing;
-using DmgPropertyService.Api;
-using DmgPropertyService.Data;
 using DmgPropertyService.Domain;
-using DmgPropertyService.Service;
 using FluentValidation.Mvc;
+using IN.DOT.DamagedProperty.Api.Persistence;
+using IN.DOT.DamagedProperty.Api.ServiceInterface;
+using IN.DOT.DamagedProperty.Api.Services;
 using IN.DOT.DamagedProperty.Api.WebUI.Mapping;
 
 namespace DmgPropertyService.Web

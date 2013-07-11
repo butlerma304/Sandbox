@@ -33,6 +33,9 @@
     <Reference Include="AutoMapper">
       <HintPath>..\..\DmgPropertyService.Web\packages\AutoMapper.2.2.1\lib\net40\AutoMapper.dll</HintPath>
     </Reference>
+    <Reference Include="Calabonga.Mvc.PagedListExt">
+      <HintPath>..\DmgPropertyService.Web\packages\PagedListExt.Mvc4.1.2.1\lib\net45\Calabonga.Mvc.PagedListExt.dll</HintPath>
+    </Reference>
     <Reference Include="Dapper">
       <HintPath>..\..\DmgPropertyService.Web\packages\Dapper-Async.1.03\lib\net45\Dapper.dll</HintPath>
     </Reference>
@@ -52,13 +55,13 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AutoMapperDataConfiguration.cs" />
-    <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Interface\" />
+    <Folder Include="Properties\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
