@@ -5,7 +5,6 @@ using System.Web;
 using System.Web.Mvc;
 using AutoMapper;
 using DmgPropertyService.Domain;
-using DmgPropertyService.Web.Models;
 
 namespace DmgPropertyService.Web.Controllers
 {

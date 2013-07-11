@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-
-namespace DmgPropertyService.Web.Models
+﻿namespace IN.DOT.DamagedProperty.Api.WebUI.Models
 {
     public class CustomerViewModel
     {

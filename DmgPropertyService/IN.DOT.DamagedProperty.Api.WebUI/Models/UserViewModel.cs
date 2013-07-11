@@ -1,11 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using DmgPropertyService.Domain;
+﻿using IN.DOT.DamagedProperty.Api.Domain;
 using ServiceStack.FluentValidation;
 
-namespace DmgPropertyService.Web.Models
+namespace IN.DOT.DamagedProperty.Api.WebUI.Models
 {
     public class UserViewModel
     {

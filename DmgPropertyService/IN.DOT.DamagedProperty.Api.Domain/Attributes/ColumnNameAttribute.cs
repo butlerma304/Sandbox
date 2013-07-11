@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace DmgPropertyService.Domain.Attributes
+namespace IN.DOT.DamagedProperty.Api.Domain.Attributes
 {
     class ColumnNameAttribute:Attribute 
     {

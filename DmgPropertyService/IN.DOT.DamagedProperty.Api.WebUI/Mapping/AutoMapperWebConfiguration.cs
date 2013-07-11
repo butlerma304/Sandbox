@@ -1,8 +1,6 @@
 ﻿using AutoMapper;
-using DmgPropertyService.Domain;
-using DmgPropertyService.Web.Models;
 
-namespace DmgPropertyService.Web.Mapping
+namespace IN.DOT.DamagedProperty.Api.WebUI.Mapping
 {
     public static class AutoMapperWebConfiguration
     {

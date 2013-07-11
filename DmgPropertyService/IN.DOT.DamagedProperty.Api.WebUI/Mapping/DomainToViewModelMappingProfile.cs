@@ -1,12 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using AutoMapper;
-using DmgPropertyService.Domain;
-using DmgPropertyService.Web.Models;
+﻿using AutoMapper;
+using IN.DOT.DamagedProperty.Api.Domain;
+using IN.DOT.DamagedProperty.Api.WebUI.Models;
 
-namespace DmgPropertyService.Web.Mapping
+namespace IN.DOT.DamagedProperty.Api.WebUI.Mapping
 {
     public class DomainToViewModelMappingProfile:Profile
     {
