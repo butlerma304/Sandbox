@@ -81,6 +81,9 @@
     <Compile Include="..\IN.DOT.DamagedProperty.Api.Domain\Attributes\ColumnNameAttribute.cs">
       <Link>Attributes\ColumnNameAttribute.cs</Link>
     </Compile>
+    <Compile Include="AutoMapperDomainConfiguration.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="Customer.cs" />
     <Compile Include="EntityBase.cs" />
     <Compile Include="PagedResult.cs" />

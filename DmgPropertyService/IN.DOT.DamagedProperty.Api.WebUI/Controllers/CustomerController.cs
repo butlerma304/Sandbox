@@ -4,9 +4,9 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using AutoMapper;
-using DmgPropertyService.Domain;
+using IN.DOT.DamagedProperty.Api.Domain;
 
-namespace DmgPropertyService.Web.Controllers
+namespace IN.DOT.DamagedProperty.Api.WebUI.Controllers
 {
     public class CustomerController : Controller
     {

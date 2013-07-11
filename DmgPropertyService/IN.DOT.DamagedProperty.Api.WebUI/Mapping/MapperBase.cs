@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using AutoMapper;
 
-namespace DmgPropertyService.Domain
+namespace IN.DOT.DamagedProperty.Api.WebUI
 {
     public abstract class BaseMapper<T, U>
         where T : EntityBase
