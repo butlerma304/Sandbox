@@ -2,11 +2,13 @@
 using System.Runtime.Serialization;
 using DmgPropertyService.Domain.Attributes;
 
+
 namespace DmgPropertyService.Domain
 {
     [Serializable, DataContract]
-    public class EntityBase
+    public class EntityBase  
     {
+        
         public EntityBase()
         {
             LastModifiedDate = CreateDate = DateTime.Now;

@@ -150,6 +150,7 @@
     <Compile Include="Mapping\DomainToViewModelMappingProfile.cs" />
     <Compile Include="Mapping\ViewModelToDomainMappingProfile.cs" />
     <Compile Include="Models\CustomerViewModel.cs" />
+    <Compile Include="Models\UserViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="WebServiceExamples.cs" />
   </ItemGroup>
@@ -179,21 +180,21 @@
     <Content Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\DmgPropertyService.Api\DmgPropertyService.Api.csproj">
+    <ProjectReference Include="..\DmgPropertyService.Api\IN.DOT.DamagedProperty.Api.ServiceInterface.csproj">
       <Project>{1dabf001-2467-4cc2-9886-f1bc124ec244}</Project>
-      <Name>DmgPropertyService.Api</Name>
+      <Name>IN.DOT.DamagedProperty.Api.ServiceInterface</Name>
     </ProjectReference>
-    <ProjectReference Include="..\DmgPropertyService.Data\DmgPropertyService.Data.csproj">
+    <ProjectReference Include="..\DmgPropertyService.Data\IN.DOT.DamagedProperty.Api.Persistence.csproj">
       <Project>{1655c6bb-48de-4b95-8063-a16234070837}</Project>
-      <Name>DmgPropertyService.Data</Name>
+      <Name>IN.DOT.DamagedProperty.Api.Persistence</Name>
     </ProjectReference>
-    <ProjectReference Include="..\DmgPropertyService.Domain\DmgPropertyService.Domain.csproj">
+    <ProjectReference Include="..\DmgPropertyService.Domain\IN.DOT.DamagedProperty.Api.Domain.csproj">
       <Project>{efb410b2-f838-4172-853a-141692008e28}</Project>
-      <Name>DmgPropertyService.Domain</Name>
+      <Name>IN.DOT.DamagedProperty.Api.Domain</Name>
     </ProjectReference>
-    <ProjectReference Include="..\DmgPropertyService.Service\DmgPropertyService.Service.csproj">
+    <ProjectReference Include="..\DmgPropertyService.Service\IN.DOT.DamagedProperty.Api.Services.csproj">
       <Project>{5530fa76-0f4f-49fc-a95f-7a51d74f39d2}</Project>
-      <Name>DmgPropertyService.Service</Name>
+      <Name>IN.DOT.DamagedProperty.Api.Services</Name>
     </ProjectReference>
   </ItemGroup>
   <PropertyGroup>

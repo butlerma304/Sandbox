@@ -10,6 +10,7 @@ using DmgPropertyService.Data;
 using DmgPropertyService.Domain;
 using DmgPropertyService.Service;
 using DmgPropertyService.Web.Mapping;
+using FluentValidation.Mvc;
 
 namespace DmgPropertyService.Web
 {
@@ -25,12 +26,17 @@ namespace DmgPropertyService.Web
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
             RouteConfig.RegisterRoutes(RouteTable.Routes);
 
+            #region AutoMapper Registration
+
             // AutoMapper Registration
             AutoMapperWebConfiguration.Configure();
             AutoMapperDataConfiguration.Configure();
             AutoMapperServiceConfiguration.Configure();
             AutoMapperDomainConfiguration.Configure();
             AutoMapperApiConfiguration.Configure();
+            #endregion
+            
+            FluentValidationModelValidatorProvider.Configure();
         }
     }
 }
