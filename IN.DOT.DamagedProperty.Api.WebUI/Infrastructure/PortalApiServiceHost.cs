@@ -1,15 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
+﻿using System.Collections.Generic;
 using System.Reflection;
-using System.Web;
 using System.Web.Configuration;
+using IN.DOT.DamagedProperty.Api.WebUI;
+using IN.DOT.DamagedProperty.WebUI.App_Start;
 using ServiceStack.Common.Web;
-using ServiceStack.ServiceHost;
 using ServiceStack.Text;
 using ServiceStack.WebHost.Endpoints;
 
-namespace IN.DOT.DamagedProperty.Api.WebUI.Infrastructure
+namespace IN.DOT.DamagedProperty.WebUI.Infrastructure
 {
     public class PortalApiServiceHost : AppHostBase
     {

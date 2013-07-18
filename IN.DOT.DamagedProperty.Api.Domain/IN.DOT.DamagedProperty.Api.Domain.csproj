@@ -7,8 +7,8 @@
     <ProjectGuid>{EFB410B2-F838-4172-853A-141692008E28}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>DmgPropertyService.Domain</RootNamespace>
-    <AssemblyName>DmgPropertyService.Domain</AssemblyName>
+    <RootNamespace>IN.DOT.DamagedProperty.Api.Domain</RootNamespace>
+    <AssemblyName>IN.DOT.DamagedProperty.Api.Domain</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -34,7 +34,7 @@
       <HintPath>..\packages\AutoMapper.2.2.1\lib\net40\AutoMapper.dll</HintPath>
     </Reference>
     <Reference Include="FluentValidation">
-      <HintPath>..\DmgPropertyService\IN.DOT.DamagedProperty.Api.WebUI\packages\FluentValidation.4.0.0.0\lib\Net40\FluentValidation.dll</HintPath>
+      <HintPath>..\IN.DOT.DamagedProperty.Api.WebUI\packages\FluentValidation.4.0.0.0\lib\Net40\FluentValidation.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <Private>True</Private>
@@ -79,21 +79,20 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Attributes\ColumnNameAttribute.cs" />
-    <Compile Include="AutoMapperDomainConfiguration.cs" />
-    <Compile Include="CreditCard.cs" />
-    <Compile Include="Customer.cs" />
-    <Compile Include="EntityBase.cs" />
-    <Compile Include="IValidatable.cs" />
-    <Compile Include="MapperBase.cs" />
-    <Compile Include="PagedResult.cs" />
+    <Compile Include="..\SandBox\Address.cs">
+      <Link>Model\Address.cs</Link>
+    </Compile>
+    <Compile Include="Model\CommonBase.cs" />
+    <Compile Include="Model\EntityBase.cs" />
+    <Compile Include="Model\Widget.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="User.cs" />
+    <Compile Include="..\SandBox\User.cs">
+      <Link>Model\User.cs</Link>
+    </Compile>
+    <Compile Include="Model\BillingInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Interface\" />
-  </ItemGroup>
-  <ItemGroup>
-    <WCFMetadata Include="Service References\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

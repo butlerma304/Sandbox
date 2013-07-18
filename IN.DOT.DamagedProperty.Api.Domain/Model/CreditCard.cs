@@ -1,12 +1,15 @@
 ﻿using System;
+using ServiceStack.DataAnnotations;
 using ServiceStack.FluentValidation;
 
-namespace IN.DOT.DamagedProperty.Api.Domain
+namespace IN.DOT.DamagedProperty.Api.Domain.Model
 {
-       [FluentValidation.Attributes.Validator(typeof(UserBillingInfoValidator))]
+       [FluentValidation.Attributes.Validator(typeof(CreditCardValidator))]
     [Serializable]
     public class CreditCard : EntityBase
     {
+        [AutoIncrement] // Creates Auto primary key
+        public int Id { get; set; }
         public string CreditCardType { get; set; }
         public string CreditCardNumber { get; set; }
         public string CreditCardExpDate { get; set; }

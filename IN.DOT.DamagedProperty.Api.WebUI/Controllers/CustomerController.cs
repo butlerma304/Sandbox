@@ -1,12 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.Mvc;
-using AutoMapper;
-using IN.DOT.DamagedProperty.Api.Domain;
+﻿using System.Web.Mvc;
 
-namespace IN.DOT.DamagedProperty.Api.WebUI.Controllers
+namespace DmgPropertyService.Web.Controllers
 {
     public class CustomerController : Controller
     {

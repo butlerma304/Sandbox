@@ -2,8 +2,7 @@
 using System.Runtime.Serialization;
 using IN.DOT.DamagedProperty.Api.Domain.Attributes;
 
-
-namespace IN.DOT.DamagedProperty.Api.Domain
+namespace IN.DOT.DamagedProperty.Api.Domain.Model
 {
     [Serializable, DataContract]
     public class EntityBase  

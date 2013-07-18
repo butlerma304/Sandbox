@@ -11,8 +11,8 @@
     <ProjectTypeGuids>{E3E379DF-F4C6-4180-9B81-6769533ABE47};{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>DmgPropertyService.Web</RootNamespace>
-    <AssemblyName>DmgPropertyService.Web</AssemblyName>
+    <RootNamespace>IN.DOT.DamagedProperty.WebUI</RootNamespace>
+    <AssemblyName>IN.DOT.DamagedProperty.WebUI</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <MvcBuildViews>false</MvcBuildViews>
     <UseIISExpress>true</UseIISExpress>
@@ -41,6 +41,10 @@
   <ItemGroup>
     <Reference Include="AutoMapper">
       <HintPath>..\packages\AutoMapper.2.2.1\lib\net40\AutoMapper.dll</HintPath>
+    </Reference>
+    <Reference Include="FluentValidation, Version=4.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>packages\FluentValidation.4.0.0.0\lib\Net40\FluentValidation.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="ServiceStack">
@@ -139,9 +143,18 @@
     <Reference Include="WebActivator">
       <HintPath>..\packages\WebActivator.1.5.3\lib\net40\WebActivator.dll</HintPath>
     </Reference>
+    <Reference Include="WebMatrix.Data, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>packages\Microsoft.AspNet.WebPages.Data.2.0.20710.0\lib\net40\WebMatrix.Data.dll</HintPath>
+    </Reference>
+    <Reference Include="WebMatrix.WebData, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>packages\Microsoft.AspNet.WebPages.WebData.2.0.30506.0\lib\net40\WebMatrix.WebData.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="App_Start\AppHost.cs" />
+    <Compile Include="App_Start\ContainerConfig.cs" />
+    <Compile Include="App_Start\PluginConfig.cs" />
     <Compile Include="Controllers\CustomerController.cs" />
     <Compile Include="Infrastructure\Container\PersistenceModule.cs" />
     <Compile Include="Infrastructure\Container\ServicesModule.cs" />
@@ -153,16 +166,19 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Mapping\DomainToViewModelMappingProfile.cs" />
+    <Compile Include="Mapping\MapperBase.cs" />
+    <Compile Include="Mapping\PagedResult.cs" />
     <Compile Include="Mapping\ViewModelToDomainMappingProfile.cs" />
+    <Compile Include="Models\AddressViewModel.cs" />
+    <Compile Include="Models\BillingInfoView.cs" />
+    <Compile Include="Models\BillingInfoViewModel.cs" />
     <Compile Include="Models\CustomerViewModel.cs" />
     <Compile Include="Models\UserViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="WebServiceExamples.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="App_Start\FilterConfig.cs" />
-    <Compile Include="App_Start\RouteConfig.cs" />
-    <Compile Include="App_Start\WebApiConfig.cs" />
     <Content Include="Content\js\ss-validation.js" />
     <Content Include="default.htm" />
     <Content Include="Global.asax" />
@@ -185,22 +201,27 @@
     <Content Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\DmgPropertyService.Api\IN.DOT.DamagedProperty.Api.ServiceInterface.csproj">
+    <ProjectReference Include="..\IN.DOT.DamagedProperty.Api.ServiceInterface\IN.DOT.DamagedProperty.Api.ServiceInterface.csproj">
       <Project>{1dabf001-2467-4cc2-9886-f1bc124ec244}</Project>
       <Name>IN.DOT.DamagedProperty.Api.ServiceInterface</Name>
     </ProjectReference>
-    <ProjectReference Include="..\DmgPropertyService.Data\IN.DOT.DamagedProperty.Api.Persistence.csproj">
+    <ProjectReference Include="..\IN.DOT.DamagedProperty.Api.Persistence\IN.DOT.DamagedProperty.Api.Persistence.csproj">
       <Project>{1655c6bb-48de-4b95-8063-a16234070837}</Project>
       <Name>IN.DOT.DamagedProperty.Api.Persistence</Name>
     </ProjectReference>
-    <ProjectReference Include="..\DmgPropertyService.Domain\IN.DOT.DamagedProperty.Api.Domain.csproj">
+    <ProjectReference Include="..\IN.DOT.DamagedProperty.Api.Domain\IN.DOT.DamagedProperty.Api.Domain.csproj">
       <Project>{efb410b2-f838-4172-853a-141692008e28}</Project>
       <Name>IN.DOT.DamagedProperty.Api.Domain</Name>
     </ProjectReference>
-    <ProjectReference Include="..\DmgPropertyService.Service\IN.DOT.DamagedProperty.Api.Services.csproj">
+    <ProjectReference Include="..\IN.DOT.DamagedProperty.Api.Services\IN.DOT.DamagedProperty.Api.Services.csproj">
       <Project>{5530fa76-0f4f-49fc-a95f-7a51d74f39d2}</Project>
       <Name>IN.DOT.DamagedProperty.Api.Services</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\PublishProfiles\Development.pubxml" />
+    <None Include="Properties\PublishProfiles\Production.pubxml" />
+    <None Include="Properties\PublishProfiles\QualityAssurance.pubxml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

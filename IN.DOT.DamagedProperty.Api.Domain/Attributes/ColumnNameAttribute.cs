@@ -2,9 +2,9 @@
 
 namespace IN.DOT.DamagedProperty.Api.Domain.Attributes
 {
-    class ColumnNameAttribute:Attribute 
+    class ColumnNameAttribute:Attribute
     {
-        public ColumnNameAttribute(string name)
+        public ColumnNameAttribute (string name)
         {
             Name = name;
         }

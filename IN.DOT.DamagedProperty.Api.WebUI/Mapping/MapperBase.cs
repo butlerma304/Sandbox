@@ -1,39 +1,37 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using AutoMapper;
+using IN.DOT.DamagedProperty.Api.Domain;
+using IN.DOT.DamagedProperty.Api.Domain.Model;
 
-namespace IN.DOT.DamagedProperty.Api.WebUI
+namespace IN.DOT.DamagedProperty.WebUI.Mapping
 {
-    public abstract class BaseMapper<T, U>
+    public abstract class BaseMapper<T, TU>
         where T : EntityBase
-        where U : BaseDto, new()
+        where TU : DtoBase, new()
     {
 
-        protected IMappingExpression<U, T> DtoToDomainMapping { get; private set; }
+        protected IMappingExpression<TU, T> DtoToDomainMapping { get; private set; }
 
-        protected IMappingExpression<T, U> DomainToDtoMapping { get; private set; }
+        protected IMappingExpression<T, TU> DomainToDtoMapping { get; private set; }
 
 
-
-        public BaseMapper()
+        protected BaseMapper()
         {
 
-            DomainToDtoMapping = Mapper.CreateMap<T, U>();
+            DomainToDtoMapping = Mapper.CreateMap<T, TU>();
 
 
 
-            var mex = Mapper.CreateMap<U, T>()
+            var mex = Mapper.CreateMap<TU, T>()
 
-                            .ForMember(m => m.Id, m => m.Ignore());
+                            .ForMember(m => m.ID, m => m.Ignore());
 
 
 
             var refProperties = from p in typeof(T).GetProperties()
 
-                                where p.PropertyType.BaseType == typeof(BaseEntity)
+                                where p.PropertyType.BaseType == typeof(EntityBase)
 
                                 select p;
 
@@ -48,7 +46,7 @@ namespace IN.DOT.DamagedProperty.Api.WebUI
 
 
 
-            Mapper.CreateMap<PagedResult<T>, PagedResult<U>>()
+          Mapper.CreateMap<PagedResult<T>, PagedResult<TU>>()
 
                   .ForMember(m => m.Results, m => m.Ignore());
 
@@ -56,7 +54,7 @@ namespace IN.DOT.DamagedProperty.Api.WebUI
 
 
 
-        public U MapToDto(T instance)
+        public TU MapToDto(T instance)
         {
 
             if (instance == null)
@@ -65,7 +63,7 @@ namespace IN.DOT.DamagedProperty.Api.WebUI
 
 
 
-            var dto = new U();
+            var dto = new TU();
 
 
 
@@ -79,16 +77,16 @@ namespace IN.DOT.DamagedProperty.Api.WebUI
 
 
 
-        public IList<U> MapToDtoList(IList<T> list)
+        public IList<TU> MapToDtoList(IList<T> list)
         {
 
             if (list == null)
 
-                return new List<U>();
+                return new List<TU>();
 
 
 
-            var dtoList = new List<U>();
+            var dtoList = new List<TU>();
 
 
 
@@ -102,7 +100,7 @@ namespace IN.DOT.DamagedProperty.Api.WebUI
 
 
 
-        public PagedResult<U> MapToDtoPagedResult(PagedResult<T> pagedResult)
+        public PagedResult<TU> MapToDtoPagedResult(PagedResult<T> pagedResult)
         {
 
             if (pagedResult == null)
@@ -111,7 +109,7 @@ namespace IN.DOT.DamagedProperty.Api.WebUI
 
 
 
-            var dtoResult = new PagedResult<U>();
+            var dtoResult = new PagedResult<TU>();
 
             Mapper.Map(pagedResult, dtoResult);
 
@@ -125,7 +123,7 @@ namespace IN.DOT.DamagedProperty.Api.WebUI
 
 
 
-        public void MapFromDto(U dto, T instance)
+        public void MapFromDto(TU dto, T instance)
         {
 
             Mapper.Map(dto, instance);

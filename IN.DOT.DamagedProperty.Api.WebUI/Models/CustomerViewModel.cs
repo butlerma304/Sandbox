@@ -1,4 +1,4 @@
-﻿namespace IN.DOT.DamagedProperty.Api.WebUI.Models
+﻿namespace DmgPropertyService.Web.Models
 {
     public class CustomerViewModel
     {

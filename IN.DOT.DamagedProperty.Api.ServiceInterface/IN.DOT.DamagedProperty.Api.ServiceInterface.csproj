@@ -7,8 +7,8 @@
     <ProjectGuid>{1DABF001-2467-4CC2-9886-F1BC124EC244}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>DmgPropertyService.Api</RootNamespace>
-    <AssemblyName>DmgPropertyService.Api</AssemblyName>
+    <RootNamespace>IN.DOT.DamagedProperty.Api.ServiceInterface</RootNamespace>
+    <AssemblyName>IN.DOT.DamagedProperty.Api.ServiceInterface</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -30,6 +30,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="ServiceStack.ServiceInterface">
+      <HintPath>..\packages\ServiceStack.3.9.55\lib\net35\ServiceStack.ServiceInterface.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -41,6 +44,21 @@
   <ItemGroup>
     <Compile Include="AutoMapperApiConfiguration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="WidgetService.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\IN.DOT.DamagedProperty.Api.Domain\IN.DOT.DamagedProperty.Api.Domain.csproj">
+      <Project>{efb410b2-f838-4172-853a-141692008e28}</Project>
+      <Name>IN.DOT.DamagedProperty.Api.Domain</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\IN.DOT.DamagedProperty.Api.Persistence\IN.DOT.DamagedProperty.Api.Persistence.csproj">
+      <Project>{1655c6bb-48de-4b95-8063-a16234070837}</Project>
+      <Name>IN.DOT.DamagedProperty.Api.Persistence</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\IN.DOT.DamagedProperty.Api.ServiceModel\IN.DOT.DamagedProperty.Api.ServiceModel.csproj">
+      <Project>{64c14642-4ae2-4f77-9bb5-42a5f328c3a0}</Project>
+      <Name>IN.DOT.DamagedProperty.Api.ServiceModel</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

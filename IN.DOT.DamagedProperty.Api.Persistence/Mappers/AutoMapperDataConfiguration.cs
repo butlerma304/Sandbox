@@ -1,12 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace IN.DOT.DamagedProperty.Api.Domain
+﻿namespace IN.DOT.DamagedProperty.Api.Persistence.Mappers
 {
-    public class AutoMapperDomainConfiguration
+    public static class AutoMapperDataConfiguration
     {
         public static void Configure()
         {
@@ -16,5 +10,6 @@ namespace IN.DOT.DamagedProperty.Api.Domain
             //    cfg.AddProfile(new PostProfile());
             //});
         }
+
     }
 }

@@ -1,12 +1,8 @@
-﻿﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using IN.DOT.DamagedProperty.Api.Domain.Model;
-using IN.DOT.DamagedProperty.Api.Persistence.Abstract;
+﻿using IN.DOT.DamagedProperty.Api.Domain.Model;
 using IN.DOT.DamagedProperty.Api.Persistence.Concrete;
+using IN.DOT.DamagedProperty.Api.Persistence.Interface;
 
-namespace IN.DOT.DamagedProperty.Api.WebUI.Infrastructure.Container
+namespace IN.DOT.DamagedProperty.WebUI.Infrastructure.Container
 {
     internal class PersistenceModule
     {
@@ -15,6 +11,9 @@ namespace IN.DOT.DamagedProperty.Api.WebUI.Infrastructure.Container
             // Register any dependencies your services use, e.g:
             // container.Register<ICacheClient>(new MemoryCacheClient());
             container.Register<IRepository<Widget>>(c => new FakeWidgetRepository());
+            container.Register<IRepository<User>>(c => new UserRepository());
+            container.Register<IRepository<User>>(c => new BillingInfoRepository());
+            container.Register<IRepository<User>>(c => new AddressRepository());
         }
     }
 }

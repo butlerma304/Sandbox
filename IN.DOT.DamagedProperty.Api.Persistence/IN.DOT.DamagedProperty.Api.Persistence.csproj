@@ -7,8 +7,8 @@
     <ProjectGuid>{1655C6BB-48DE-4B95-8063-A16234070837}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>DmgPropertyService.Data</RootNamespace>
-    <AssemblyName>DmgPropertyService.Data</AssemblyName>
+    <RootNamespace>IN.DOT.DamagedProperty.Api.Persistence</RootNamespace>
+    <AssemblyName>IN.DOT.DamagedProperty.Api.Persistence</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -31,16 +31,11 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="AutoMapper">
-      <HintPath>..\..\DmgPropertyService.Web\packages\AutoMapper.2.2.1\lib\net40\AutoMapper.dll</HintPath>
+      <HintPath>..\packages\AutoMapper.2.2.1\lib\net40\AutoMapper.dll</HintPath>
     </Reference>
-    <Reference Include="Dapper">
-      <HintPath>..\..\DmgPropertyService.Web\packages\Dapper-Async.1.03\lib\net45\Dapper.dll</HintPath>
-    </Reference>
-    <Reference Include="Dapper.Mapper">
-      <HintPath>..\..\DmgPropertyService.Web\packages\Dapper.Mapper.1.1.0\lib\Dapper.Mapper.dll</HintPath>
-    </Reference>
-    <Reference Include="DapperExtensions">
-      <HintPath>..\..\DmgPropertyService.Web\packages\DapperExtensions.1.4.1\lib\net40\DapperExtensions.dll</HintPath>
+    <Reference Include="ServiceStack.Interfaces, Version=3.9.55.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\ServiceStack.Common.3.9.55\lib\sl4\ServiceStack.Interfaces.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -51,14 +46,30 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AutoMapperDataConfiguration.cs" />
+    <Compile Include="Concrete\AddressRepository.cs" />
+    <Compile Include="Concrete\BillingInfoRepository.cs" />
+    <Compile Include="Concrete\BaseRepository.cs" />
+    <Compile Include="Concrete\UserRepository.cs" />
+    <Compile Include="Interface\IAddressRepository.cs" />
+    <Compile Include="Interface\IBillingInfoRepository.cs" />
+    <Compile Include="Interface\IRepository.cs" />
+    <Compile Include="Interface\IUserRepository.cs" />
+    <Compile Include="Mappers\AutoMapperDataConfiguration.cs" />
+    <Compile Include="Concrete\FakeWidgetRepository.cs" />
+    <Compile Include="Abstract\DtoBase.cs" />
+    <Compile Include="Mappers\MapperBase.cs" />
+    <Compile Include="Mappers\PagedResult.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
-    <Folder Include="Interface\" />
+    <ProjectReference Include="..\IN.DOT.DamagedProperty.Api.Domain\IN.DOT.DamagedProperty.Api.Domain.csproj">
+      <Project>{efb410b2-f838-4172-853a-141692008e28}</Project>
+      <Name>IN.DOT.DamagedProperty.Api.Domain</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

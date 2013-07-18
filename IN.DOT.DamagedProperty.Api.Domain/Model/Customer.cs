@@ -6,7 +6,7 @@ using ServiceStack.OrmLite;
 using ServiceStack.ServiceHost;
 using ServiceStack.ServiceInterface;
 
-namespace IN.DOT.DamagedProperty.Api.Domain
+namespace IN.DOT.DamagedProperty.Api.Domain.Model
 {
     [Route("/customers")]
     [Route("/customers/{ID}")]

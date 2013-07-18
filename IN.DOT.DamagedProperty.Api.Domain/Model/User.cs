@@ -3,7 +3,7 @@ using System.ComponentModel;
 using ServiceStack.DataAnnotations;
 using ServiceStack.FluentValidation;
 
-namespace IN.DOT.DamagedProperty.Api.Domain
+namespace IN.DOT.DamagedProperty.Api.Domain.Model
 {
     [FluentValidation.Attributes.Validator(typeof(UserValidator))]
 

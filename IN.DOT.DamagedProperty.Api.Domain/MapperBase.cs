@@ -1,11 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using AutoMapper;
+using IN.DOT.DamagedProperty.Api.Domain;
 
-namespace IN.DOT.DamagedProperty.Api.Domain
+namespace DmgPropertyService.Domain
 {
     public abstract class BaseMapper<T, U>
         where T : EntityBase

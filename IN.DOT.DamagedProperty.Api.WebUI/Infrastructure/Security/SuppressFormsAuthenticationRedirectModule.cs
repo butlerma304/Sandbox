@@ -1,9 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Web;
 
-namespace IN.DOT.DamagedProperty.Api.WebUI.Infrastructure.Security
+namespace IN.DOT.DamagedProperty.WebUI.Infrastructure.Security
 {
     public class SuppressFormsAuthenticationRedirectModule : IHttpModule
     {

@@ -1,42 +1,29 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Web;
-using System.Web.Http;
-using System.Web.Mvc;
-using System.Web.Routing;
-using DmgPropertyService.Api;
-using DmgPropertyService.Data;
-using DmgPropertyService.Domain;
-using DmgPropertyService.Service;
-using DmgPropertyService.Web.Mapping;
-using FluentValidation.Mvc;
+using System.Reflection;
+using IN.DOT.DamagedProperty.WebUI.Infrastructure;
+using WebMatrix.WebData;
 
-namespace IN.DOT.DamagedProperty.Api.WebUI
+namespace IN.DOT.DamagedProperty.WebUI
 {
-    // Note: For instructions on enabling IIS6 or IIS7 classic mode, 
-    // visit http://go.microsoft.com/?LinkId=9394801
-    public class MvcApplication : System.Web.HttpApplication
+    public class Global : System.Web.HttpApplication
     {
-        protected void Application_Start()
+
+        protected void Application_Start(object sender, EventArgs e)
         {
-            AreaRegistration.RegisterAllAreas();
+            var assembly = AppDomain.CurrentDomain.GetAssemblies()
+                        .SingleOrDefault(a => a.GetName().Name == "IN.DOT.DamagedProperty.Api.ServiceInterface");
 
-            WebApiConfig.Register(GlobalConfiguration.Configuration);
-            FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
-            RouteConfig.RegisterRoutes(RouteTable.Routes);
+            (new PortalApiServiceHost(assembly)).Init();
 
-            #region AutoMapper Registration
-
-            // AutoMapper Registration
-            AutoMapperWebConfiguration.Configure();
-            AutoMapperDataConfiguration.Configure();
-            AutoMapperServiceConfiguration.Configure();
-            AutoMapperDomainConfiguration.Configure();
-            AutoMapperApiConfiguration.Configure();
-            #endregion
-            
-            FluentValidationModelValidatorProvider.Configure();
+            Initialize();
         }
+
+        private static void Initialize()
+        {
+            // SimpleMembership configuration
+            WebSecurity.InitializeDatabaseConnection("DamagedProperty.Api", "User", "Id", "Username", false);
+        }
+
     }
 }

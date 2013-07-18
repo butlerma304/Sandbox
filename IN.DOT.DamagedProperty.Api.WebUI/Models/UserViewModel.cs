@@ -1,7 +1,7 @@
-﻿using IN.DOT.DamagedProperty.Api.Domain;
+﻿using IN.DOT.DamagedProperty.Api.Domain.Model;
 using ServiceStack.FluentValidation;
 
-namespace IN.DOT.DamagedProperty.Api.WebUI.Models
+namespace IN.DOT.DamagedProperty.WebUI.Models
 {
     public class UserViewModel
     {

@@ -1,8 +1,9 @@
 ﻿using AutoMapper;
+using DmgPropertyService.Web.Models;
 using IN.DOT.DamagedProperty.Api.Domain;
-using IN.DOT.DamagedProperty.Api.WebUI.Models;
+using IN.DOT.DamagedProperty.Api.Domain.Model;
 
-namespace IN.DOT.DamagedProperty.Api.WebUI.Mapping
+namespace DmgPropertyService.Web.Mapping
 {
     public class ViewModelToDomainMappingProfile:Profile
     {
